@@ -1,5 +1,9 @@
 <template>
-  <div>Signup</div>
+  <div>
+    <SignupForm />
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import SignupForm from "../components/SignupForm.vue";
+</script>
