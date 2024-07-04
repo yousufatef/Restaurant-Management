@@ -29,6 +29,11 @@ const routes = [
     name: "updateProfile",
     component: () => import("../views/UpdateProfile.vue"),
   },
+  {
+    path: "/:catchAll(.*)",
+    name: "notfound",
+    component: () => import("../views/NotFound.vue"),
+  },
 ];
 
 const router = createRouter({
@@ -36,7 +41,10 @@ const router = createRouter({
   routes,
 });
 router.beforeEach((to, from, next) => {
-  document.title = to.name;
+  const formattedTitle = `${to.name.charAt(0).toUpperCase()}${to.name
+    .slice(1)
+    .toLowerCase()} | Restaurant Management`;
+  document.title = formattedTitle;
   next();
 });
 export default router;
