@@ -4,14 +4,18 @@
       <h1 class="text-3xl font-extrabold text-center mb-6 text-blue-600">
         Sign Up
       </h1>
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent>
         <div class="mb-6">
           <input
             v-model="state.name"
             type="text"
             placeholder="Enter Your Name"
             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+            :class="{ 'border-red-500': v$.name.$error }"
           />
+          <span v-if="v$.name.$error" class="text-red-500 text-sm"
+            >Name is required</span
+          >
         </div>
         <div class="mb-6">
           <input
@@ -19,7 +23,11 @@
             type="email"
             placeholder="Enter Your Email"
             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+            :class="{ 'border-red-500': v$.email.$error }"
           />
+          <span v-if="v$.email.$error" class="text-red-500 text-sm">{{
+            v$.email.$errors[0].$message
+          }}</span>
         </div>
         <div class="mb-6">
           <div class="relative">
@@ -28,6 +36,7 @@
               :type="showPassword ? 'text' : 'password'"
               placeholder="Enter Your Password"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              :class="{ 'border-red-500': v$.password.$error }"
             />
             <input
               type="checkbox"
@@ -35,10 +44,14 @@
               class="absolute right-4 top-3 h-5 w-5"
             />
           </div>
+          <span v-if="v$.password.$error" class="text-red-500 text-sm"
+            >Password is required</span
+          >
         </div>
         <div>
           <button
             type="submit"
+            @click="handleSignup"
             class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
           >
             Sign Up Now
@@ -50,17 +63,53 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { computed, onMounted, reactive, ref } from "vue";
+import axios from "axios";
+import useVuelidate from "@vuelidate/core";
+import { email, required } from "@vuelidate/validators";
+import { useRouter } from "vue-router";
+import { useUserStore } from "../Store/UserStore";
 
+const store = useUserStore();
 const state = reactive({
   name: "",
   email: "",
   password: "",
 });
-
 const showPassword = ref(false);
 
-const handleSubmit = () => {
-  console.log("Form submitted!", state);
+const router = useRouter();
+const rules = computed(() => {
+  return {
+    name: { required },
+    email: { required, email },
+    password: { required },
+  };
+});
+const v$ = useVuelidate(rules, state);
+
+const handleSignup = async () => {
+  try {
+    v$.value.$validate();
+
+    if (!v$.value.$invalid) {
+      await store.registerUser(state);
+      alert("Registration successful!");
+      router.push({ name: "home" });
+    } else {
+      alert("Form validation failed. Please check the fields and try again.");
+    }
+  } catch (error) {
+    alert(
+      "An error occurred during the signup process. Please try again later."
+    );
+  }
 };
+
+onMounted(() => {
+  const user = localStorage.getItem("user-info");
+  if (user) {
+    router.push({ name: "home" });
+  }
+});
 </script>

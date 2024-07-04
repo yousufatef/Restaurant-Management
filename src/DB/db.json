@@ -1,34 +1,10 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": "1",
-      "title": "a title",
-      "views": 100
-    },
-    {
-      "id": "2",
-      "title": "another title",
-      "views": 200
+      "name": "Ahmed Tarek",
+      "email": "ahmed@gmail.com",
+      "password": "123456",
+      "id": "cb56"
     }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "8f6e",
-      "text": "Youssef comment ",
-      "postId": "5"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

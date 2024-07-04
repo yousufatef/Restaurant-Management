@@ -19,10 +19,24 @@ const routes = [
     name: "login",
     component: () => import("../views/Login.vue"),
   },
+  {
+    path: "/profile",
+    name: "profile",
+    component: () => import("../views/Profile.vue"),
+  },
+  {
+    path: "/update-profile",
+    name: "updateProfile",
+    component: () => import("../views/UpdateProfile.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+});
+router.beforeEach((to, from, next) => {
+  document.title = to.name;
+  next();
 });
 export default router;
