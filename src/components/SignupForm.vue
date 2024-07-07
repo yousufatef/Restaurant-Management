@@ -48,13 +48,20 @@
             >Password is required</span
           >
         </div>
-        <div>
+        <div class="flex gap-3">
           <button
             type="submit"
             @click="handleSignup"
             class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
           >
             Sign Up Now
+          </button>
+          <button
+            type="button"
+            class="w-full bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold py-3 px-4 rounded-lg focus:outline-none transition duration-200"
+            @click="handleLogin"
+          >
+            Login
           </button>
         </div>
       </form>
@@ -104,6 +111,9 @@ const handleSignup = async () => {
       "An error occurred during the signup process. Please try again later."
     );
   }
+};
+const handleLogin = () => {
+  router.push({ name: "login" }); // Replace routing to signup page
 };
 
 onMounted(() => {

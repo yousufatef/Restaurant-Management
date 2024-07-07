@@ -4,11 +4,15 @@
     <div class="flex justify-end items-center p-4">
       <p class="mr-2 font-semibold">Welcome, {{ username }}</p>
       <router-link :to="{ name: 'profile' }">
-        <button type="button" class="bg-blue-600 text-white px-4 py-2 rounded">
+        <button
+          type="button"
+          class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
+        >
           Profile
         </button>
       </router-link>
     </div>
+    <AddNewLocation />
   </div>
 </template>
 
@@ -16,6 +20,7 @@
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import NavBar from "../components/NavBar.vue";
+import AddNewLocation from "../components/AddNewLocation.vue";
 
 const router = useRouter();
 const username = ref("");
