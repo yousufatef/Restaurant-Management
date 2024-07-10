@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "name": "Ahmed Tarek",
+      "name": "Ahmed Tarek Elsaid",
       "email": "ahmed@gmail.com",
       "password": "123456",
       "id": "cb56"
@@ -11,126 +11,45 @@
       "name": "ahmed",
       "email": "ahmed@gmail.com",
       "password": "123456"
+    },
+    {
+      "name": "saad",
+      "email": "s3d@gmail.com",
+      "password": "123456",
+      "id": "77e4"
+    },
+    {
+      "name": "mosha465464",
+      "email": "mosha@gmail.com",
+      "password": "123456",
+      "id": "da0e"
+    },
+    {
+      "id": "da0e",
+      "name": "osama",
+      "email": "osma@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "49ce",
+      "name": "reda",
+      "email": "reda@gmail.com",
+      "password": "123456"
     }
   ],
   "locations": [
     {
-      "id": "dd4b",
-      "name": "ascasc",
-      "phone": "acascacCACACACASC",
-      "address": "ASC",
-      "userId": "cb56"
+      "id": "b9fa",
+      "name": "csa",
+      "phone": "01150801065",
+      "address": "alx",
+      "userId": "77e4"
     },
     {
-      "id": "1130",
-      "name": "ascasc",
-      "phone": "acascacCACACACASC",
-      "address": "ASC",
-      "userId": "cb56"
-    },
-    {
-      "id": "e81f",
-      "name": "ccc",
-      "phone": "ccccccccccccccc",
-      "address": "ccc",
-      "userId": "cb56"
-    },
-    {
-      "id": "ddba",
-      "name": "j",
-      "phone": "11111111111111111",
-      "address": "1",
-      "userId": "cb56"
-    },
-    {
-      "id": "de8f",
-      "name": "ascac",
-      "phone": "ascacsacaccasca",
-      "address": "acacs",
-      "userId": "cb56"
-    },
-    {
-      "id": "88d0",
-      "name": "aca",
-      "phone": "ascacascacacsac",
-      "address": "ascacacs",
-      "userId": "cb56"
-    },
-    {
-      "id": "f6e6",
-      "name": "a",
-      "phone": "aaaaaaaaaaaaa",
-      "address": "aa",
-      "userId": "cb56"
-    },
-    {
-      "id": "0cdb",
-      "name": "c",
-      "phone": "sacavasvavASVAVSA",
-      "address": "C",
-      "userId": "cb56"
-    },
-    {
-      "id": "b046",
+      "id": "cddf",
       "name": "aa",
-      "phone": "aaaassvsdvsdvsdvsvsd",
-      "address": "sd",
-      "userId": "cb56"
-    },
-    {
-      "id": "691f",
-      "name": "c",
-      "phone": "acascacacacsacasca",
+      "phone": "aaacacasascascascasc",
       "address": "asc",
-      "userId": "cb56"
-    },
-    {
-      "id": "7081",
-      "name": "sdvsv",
-      "phone": "sdvsvsvsvsvsvs",
-      "address": "svdv",
-      "userId": "cb56"
-    },
-    {
-      "id": "bedd",
-      "name": "fbdb",
-      "phone": "dfbdfdbdfbdfbdbd",
-      "address": "dfbd",
-      "userId": "cb56"
-    },
-    {
-      "id": "bf62",
-      "name": "sdvsd",
-      "phone": "vsvsvsvdsvssd",
-      "address": "vs",
-      "userId": "cb56"
-    },
-    {
-      "id": "68fd",
-      "name": "acs",
-      "phone": "ascacacascacasc",
-      "address": "asc",
-      "userId": "cb56"
-    },
-    {
-      "id": "244b",
-      "name": "asc",
-      "phone": "ascascacsacacasca",
-      "address": "asc",
-      "userId": "cb56"
-    },
-    {
-      "id": "09dd",
-      "name": "ccc",
-      "phone": "ccccasascascacsaca",
-      "address": "asc",
-      "userId": "cb56"
-    },
-    {
-      "id": "8aa9",
-      "name": "sc",
-      "phone": "ascascacasvasvavas",
-      "address": "asv",
       "userId": "cb56"
     }
   ]

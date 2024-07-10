@@ -5,14 +5,20 @@
       <p class="mr-2 font-semibold">Welcome, {{ username }}</p>
       <router-link :to="{ name: 'profile' }">
         <button
-          type="button"
           class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
         >
           Profile
         </button>
       </router-link>
     </div>
-    <AddNewLocation />
+    <router-link :to="{ name: 'addNewLocation' }">
+      <button
+        class="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 mx-4 mt-4 rounded"
+      >
+        Add New Restaurant
+      </button>
+    </router-link>
+    <UserLocations :allLocations="allLocations" />
   </div>
 </template>
 
@@ -20,22 +26,36 @@
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import NavBar from "../components/NavBar.vue";
-import AddNewLocation from "../components/AddNewLocation.vue";
+import axios from "axios";
+import UserLocations from "../components/UserLocations.vue";
 
 const router = useRouter();
 const username = ref("");
+const userId = ref("");
+const allLocations = ref([]);
 
 onMounted(() => {
   const userInfo = JSON.parse(localStorage.getItem("user-info"));
+
   if (!userInfo) {
     console.log("No user found, redirecting to signup");
     router.push({ name: "signup" });
-  } else {
-    console.log(userInfo.name);
-    if (userInfo.name) {
-      // Corrected conditional check
-      username.value = userInfo.name;
-    }
+    return; // Exit the onMounted hook early if no user info
   }
+
+  userId.value = userInfo.id;
+
+  if (userInfo.name) {
+    username.value = userInfo.name;
+  }
+
+  axios
+    .get(`http://localhost:3000/locations?userId=${userId.value}`)
+    .then((response) => {
+      allLocations.value = response.data;
+    })
+    .catch((error) => {
+      console.error("Error fetching locations:", error);
+    });
 });
 </script>

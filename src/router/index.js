@@ -30,6 +30,21 @@ const routes = [
     component: () => import("../views/UpdateProfile.vue"),
   },
   {
+    path: "/add-new-location",
+    name: "addNewLocation",
+    component: () => import("../views/AddNewLocation.vue"),
+  },
+  {
+    path: "/delete-location/:locationId",
+    name: "deleteLocation",
+    component: () => import("../views/DeleteLocation.vue"),
+  },
+  {
+    path: "/delete-all-locations",
+    name: "deleteAllLocations",
+    component: () => import("../views/DeleteAllLocations.vue"),
+  },
+  {
     path: "/:catchAll(.*)",
     name: "notfound",
     component: () => import("../views/NotFound.vue"),

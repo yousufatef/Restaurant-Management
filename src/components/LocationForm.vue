@@ -1,26 +1,22 @@
 <template>
-  <div
-    class="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50"
-  >
-    <div class="bg-white p-8 rounded shadow-lg w-1/2">
-      <h2 class="text-lg font-bold mb-4">Add New Restaurant</h2>
-
+  <div class="flex justify-center items-center h-screen">
+    <div class="w-full max-w-md p-8 rounded shadow-lg bg-white">
       <form @submit.prevent="addLocation">
-        <PopupFormField
+        <LocationFormField
           v-model="state.name"
           label="Restaurant Name"
           placeholder="Enter Restaurant Name"
           :error="v$.name.$error ? v$.name.$errors[0].$message : ''"
         />
 
-        <PopupFormField
+        <LocationFormField
           v-model="state.phone"
           label="Phone Number"
           placeholder="Enter Phone Number"
           :error="v$.phone.$error ? v$.phone.$errors[0].$message : ''"
         />
 
-        <PopupFormField
+        <LocationFormField
           v-model="state.address"
           label="Restaurant Address"
           placeholder="Enter Restaurant Address"
@@ -30,16 +26,9 @@
         <div class="mt-6">
           <button
             type="submit"
-            class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
           >
-            Add
-          </button>
-          <button
-            @click="closeFormWithDelay"
-            type="button"
-            class="inline-block bg-gray-300 text-gray-700 px-4 py-2 rounded ml-2 hover:bg-gray-400"
-          >
-            Cancel
+            Add New
           </button>
         </div>
 
@@ -60,7 +49,7 @@ import useVuelidate from "@vuelidate/core";
 import { required, minLength } from "@vuelidate/validators";
 import { useLocationStore } from "../Store/locationStore";
 import { useRouter } from "vue-router";
-import PopupFormField from "./PopupFormField.vue";
+import LocationFormField from "./LocationFormField.vue";
 
 // Define emits
 const emit = defineEmits(["close", "success"]);
@@ -92,7 +81,10 @@ const addLocation = async () => {
       await store.addLocation(state, userId);
       successMessage.value = "Location added successfully!";
       emitSuccessMessage(successMessage.value);
-      resetForm();
+      setTimeout(() => {
+        router.push({ name: "home" });
+        resetForm();
+      }, 1000);
     } catch (error) {
       console.error("Error adding location:", error);
     }
@@ -121,11 +113,5 @@ const resetForm = () => {
 
 const emitSuccessMessage = (message) => {
   emit("success", message); // Emit success event with message
-};
-
-const closeFormWithDelay = () => {
-  setTimeout(() => {
-    emit("close");
-  }, 2000); // Delay closing the form by 2 seconds (adjust as needed)
 };
 </script>
