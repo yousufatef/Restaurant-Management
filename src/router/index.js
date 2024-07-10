@@ -50,6 +50,21 @@ const routes = [
     component: () => import("../views/DeleteAllLocations.vue"),
   },
   {
+    path: "/menu/location/:locationId",
+    name: "menu",
+    component: () => import("../views/Menu.vue"),
+  },
+  {
+    path: "/menu/categories/view/:locationId",
+    name: "viewCategories",
+    component: () => import("../views/ViewCategories.vue"),
+  },
+  {
+    path: "/menu/categories/add/:locationId",
+    name: "addCategories",
+    component: () => import("../views/AddCategories.vue"),
+  },
+  {
     path: "/:catchAll(.*)",
     name: "notfound",
     component: () => import("../views/NotFound.vue"),

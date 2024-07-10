@@ -39,7 +39,9 @@
             :key="index"
             class="hover:bg-gray-100"
           >
-            <td class="px-6 py-4 whitespace-nowrap">{{ location.name }}</td>
+            <td class="px-6 py-4 whitespace-nowrap font-bold">
+              {{ location.name }}
+            </td>
             <td class="px-6 py-4 whitespace-nowrap">{{ location.phone }}</td>
             <td class="px-6 py-4 whitespace-nowrap">{{ location.address }}</td>
             <td
@@ -64,9 +66,18 @@
                 }"
               >
                 <button
-                  class="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                 >
                   Update
+                </button>
+              </router-link>
+              <router-link
+                :to="{ name: 'menu', params: { locationId: location.id } }"
+              >
+                <button
+                  class="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                >
+                  Menu
                 </button>
               </router-link>
             </td>

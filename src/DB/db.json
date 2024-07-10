@@ -51,6 +51,41 @@
       "address": "cas",
       "userId": "cb56",
       "id": "c07b"
+    },
+    {
+      "id": "bda1",
+      "name": "s",
+      "phone": "vvvvvvssssssssss",
+      "address": "a",
+      "userId": "da0e"
+    },
+    {
+      "id": "24bb",
+      "name": "New One",
+      "phone": "01157346848",
+      "address": "alajalu",
+      "userId": "cb56"
+    },
+    {
+      "id": "3494",
+      "name": "cc",
+      "phone": "cccscscscscscscscsc",
+      "address": "cc",
+      "userId": "cb56"
+    },
+    {
+      "id": "4d07",
+      "name": "czcz",
+      "phone": "czczczczczczczczczczc",
+      "address": "zc",
+      "userId": "cb56"
     }
-  ]
+  ],
+  "categories": [
+    { "name": "Breakfast", "id": "1", "userId": "cb56", "locationId": "8c67" },
+    { "name": "Lunch", "id": "2", "userId": "cb56", "locationId": "3494" },
+    { "name": "Dinner", "id": "3", "userId": "cb56", "locationId": "4d07" },
+    { "name": "Dinner Two", "id": "4", "userId": "abc", "locationId": "8c67" }
+  ],
+  "items": []
 }
