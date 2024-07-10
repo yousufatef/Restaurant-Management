@@ -40,6 +40,11 @@ const routes = [
     component: () => import("../views/DeleteLocation.vue"),
   },
   {
+    path: "/update-location/:locationId",
+    name: "updateLocation",
+    component: () => import("../views/UpdateLocation.vue"),
+  },
+  {
     path: "/delete-all-locations",
     name: "deleteAllLocations",
     component: () => import("../views/DeleteAllLocations.vue"),

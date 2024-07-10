@@ -42,7 +42,9 @@
             <td class="px-6 py-4 whitespace-nowrap">{{ location.name }}</td>
             <td class="px-6 py-4 whitespace-nowrap">{{ location.phone }}</td>
             <td class="px-6 py-4 whitespace-nowrap">{{ location.address }}</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium flex gap-2"
+            >
               <router-link
                 :to="{
                   name: 'deleteLocation',
@@ -53,6 +55,18 @@
                   class="bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
                 >
                   Delete
+                </button>
+              </router-link>
+              <router-link
+                :to="{
+                  name: 'updateLocation',
+                  params: { locationId: location.id },
+                }"
+              >
+                <button
+                  class="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                >
+                  Update
                 </button>
               </router-link>
             </td>
