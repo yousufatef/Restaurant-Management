@@ -10,7 +10,7 @@
             v-model="state.name"
             type="text"
             placeholder="Enter Your Name"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+            class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none transition duration-200"
             :class="{ 'border-red-500': v$.name.$error }"
           />
           <span v-if="v$.name.$error" class="text-red-500 text-sm"
@@ -22,7 +22,7 @@
             v-model="state.email"
             type="email"
             placeholder="Enter Your Email"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+            class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none transition duration-200"
             :class="{ 'border-red-500': v$.email.$error }"
           />
           <span v-if="v$.email.$error" class="text-red-500 text-sm">{{
@@ -35,7 +35,7 @@
               v-model="state.password"
               :type="showPassword ? 'text' : 'password'"
               placeholder="Enter Your Password"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none transition duration-200"
               :class="{ 'border-red-500': v$.password.$error }"
             />
             <input
@@ -52,13 +52,13 @@
           <button
             type="submit"
             @click="handleSignup"
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded focus:outline-none transition duration-200"
           >
             Sign Up Now
           </button>
           <button
             type="button"
-            class="w-full bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold py-3 px-4 rounded-lg focus:outline-none transition duration-200"
+            class="w-full bg-gray-200 hover:bg-gray-300 text-blue-700 font-semibold py-3 px-4 rounded focus:outline-none transition duration-200"
             @click="handleLogin"
           >
             Login

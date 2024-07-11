@@ -26,7 +26,7 @@
         <div class="mt-6">
           <button
             type="submit"
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded focus:outline-none transition duration-200"
           >
             Add New
           </button>
@@ -34,7 +34,7 @@
 
         <div
           v-if="successMessage"
-          class="mt-4 p-4 bg-green-100 border font-semibold border-green-400 text-green-700 rounded-lg flex items-center"
+          class="mt-4 p-4 bg-green-100 border font-semibold border-green-400 text-green-700 rounded flex items-center"
         >
           {{ successMessage }}
         </div>

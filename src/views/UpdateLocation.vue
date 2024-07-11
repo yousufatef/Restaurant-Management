@@ -11,7 +11,7 @@
               v-model="state.name"
               type="text"
               placeholder="Enter Your Name"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 transition duration-200"
               :class="{ 'border-red-500': v$.name.$error }"
             />
             <span v-if="v$.name.$error" class="text-red-500 text-sm">
@@ -23,7 +23,7 @@
               v-model="state.phone"
               type="text"
               placeholder="Enter Your Phone"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none transition duration-200"
               :class="{ 'border-red-500': v$.phone.$error }"
             />
             <span v-if="v$.phone.$error" class="text-red-500 text-sm">
@@ -35,7 +35,7 @@
               v-model="state.address"
               type="text"
               placeholder="Enter Your Address"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none transition duration-200"
               :class="{ 'border-red-500': v$.address.$error }"
             />
             <span v-if="v$.address.$error" class="text-red-500 text-sm">
@@ -45,7 +45,7 @@
           <div>
             <button
               type="submit"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded focus:outline-none transition duration-200"
             >
               Update Now
             </button>

@@ -15,7 +15,7 @@
         <div class="flex gap-3 justify-center">
           <button
             type="submit"
-            class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition duration-200"
+            class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded transition duration-200"
           >
             Delete
           </button>

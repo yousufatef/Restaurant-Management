@@ -13,7 +13,7 @@
               disabled
               type="text"
               placeholder="Enter Your Name"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none  transition duration-200"
             />
           </div>
           <div class="mb-6">
@@ -22,7 +22,7 @@
               disabled
               type="email"
               placeholder="Enter Your Email"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+              class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none  transition duration-200"
             />
           </div>
           <div class="mb-6">
@@ -32,7 +32,7 @@
                 :type="showPassword ? 'text' : 'password'"
                 disabled
                 placeholder="Enter Your Password"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none  transition duration-200"
               />
               <input
                 type="checkbox"
@@ -46,7 +46,7 @@
               type="submit"
               v-if="editable"
               @click="handleUpdate"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded focus:outline-none  transition duration-200"
             >
               Update Now
             </button>

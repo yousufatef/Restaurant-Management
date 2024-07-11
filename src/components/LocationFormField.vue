@@ -5,7 +5,7 @@
       :value="modelValue"
       @input="updateValue"
       :placeholder="placeholder"
-      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+      class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none transition duration-200"
     />
     <span v-if="error" class="text-red-500 text-sm">
       {{ error }}

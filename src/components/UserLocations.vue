@@ -6,15 +6,17 @@
       >
         <span>All Locations is ({{ allLocations.length }})</span>
         <span>
-          <router-link
-            :to="{ name: 'deleteAllLocations' }"
-            class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
-            >Delete All Locations</router-link
+          <router-link :to="{ name: 'deleteAllLocations' }"
+            ><button
+              class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-3 rounded focus:outline-none transition duration-200"
+            >
+              Delete All Locations
+            </button></router-link
           >
         </span>
       </caption>
       <table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg">
-        <thead class="bg-black opacity-90 text-white">
+        <thead class="bg-gray-500 text-white">
           <!-- <thead class="bg-blue-500 opacity-90 text-white"> -->
           <tr>
             <th
@@ -54,7 +56,7 @@
                 }"
               >
                 <button
-                  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                  class="bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded focus:outline-none transition duration-200"
                 >
                   Delete
                 </button>
@@ -66,7 +68,7 @@
                 }"
               >
                 <button
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded focus:outline-none transition duration-200"
                 >
                   Update
                 </button>
@@ -75,7 +77,7 @@
                 :to="{ name: 'menu', params: { locationId: location.id } }"
               >
                 <button
-                  class="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                  class="bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded focus:outline-none focus:ring-blue-50 transition duration-200"
                 >
                   Menu
                 </button>
