@@ -1,13 +1,15 @@
 import axios from "axios";
 import { defineStore } from "pinia";
+import { useRouter } from "vue-router";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
     userData: {},
-    LoggedIn: "",
+    LoggedIn: false, // should be a boolean
     loggedInUserId: "",
-    numOfCategories: "",
+    numOfCategories: 0, // should be a number
     listOfCategories: [],
+    listOfLocations: [],
   }),
 
   actions: {
@@ -48,14 +50,29 @@ export const useUserStore = defineStore("user", {
 
           this.listOfCategories = filteredCategories;
           this.numOfCategories = filteredCategories.length;
-
-          console.log(this.listOfCategories);
-          console.log(userId);
-          console.log(locationId);
         }
       } catch (error) {
         // Log any errors that occur during the request
         console.error("Error fetching categories:", error);
+      }
+    },
+    async canUserAccessLocation(userId, locationId, router) {
+      try {
+        const result = await axios.get(
+          `http://localhost:3000/locations?userId=${userId}`
+        );
+        if (result.status === 200) {
+          this.listOfLocations = result.data.filter(
+            (location) => location.id === locationId
+          );
+          if (this.listOfLocations.length !== 1) {
+            console.log("List Of Locations:", this.listOfLocations);
+            router.push({ name: "home" });
+          }
+        }
+      } catch (error) {
+        // Log any errors that occur during the request
+        console.error("Error fetching locations:", error);
       }
     },
   },

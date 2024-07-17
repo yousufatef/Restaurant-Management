@@ -20,6 +20,12 @@
         Add New Item
       </button>
     </div>
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="font-semibold text-3xl">
+        {{ locationStore.locationName }}
+      </h1>
+      <h1>{{ locationStore.locationAddress }}</h1>
+    </div>
   </div>
 </template>
 
@@ -27,9 +33,12 @@
 import NavBar from "../components/NavBar.vue";
 import { reactive, onMounted } from "vue";
 import { useUserStore } from "../Store/UserStore";
+import { useLocationStore } from "../Store/locationStore";
 import { useRoute, useRouter } from "vue-router";
+import axios from "axios";
 
 const store = useUserStore();
+const locationStore = useLocationStore();
 const route = useRoute();
 const router = useRouter();
 
@@ -37,8 +46,31 @@ const state = reactive({
   userId: "",
   userName: "",
   locationId: route.params.locationId,
-  numOfCategories: 0, // assuming this comes from store or somewhere
+  numOfCategories: 0,
 });
+
+const getLocationInfo = async (userId, locationId) => {
+  try {
+    const result = await axios.get(
+      `http://localhost:3000/locations?userId=${userId}`
+    );
+    if (result.status === 200) {
+      const locationDetails = result.data.filter(
+        (location) => location.id === locationId
+      );
+      if (locationDetails.length === 1) {
+        state.locationName = locationDetails[0].name;
+        state.locationAddress = locationDetails[0].address;
+        console.log(locationDetails[0]);
+        console.log(state.locationName);
+      } else {
+        console.log("Location not found");
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching location info:", error);
+  }
+};
 
 onMounted(() => {
   const user = localStorage.getItem("user-info");
@@ -50,10 +82,11 @@ onMounted(() => {
     const userInfo = JSON.parse(user);
     state.userId = userInfo.id;
     state.userName = userInfo.name;
-    console.log("Location ID:", state.locationId);
+
     store.isUserLoggedIn();
     store.displayAllCategories(state.userId, state.locationId);
-    // Example of setting numOfCategories, replace with actual logic
+    store.canUserAccessLocation(state.userId, state.locationId, router);
+    locationStore.getLocationInfo(state.userId, state.locationId);
   }
 });
 </script>
