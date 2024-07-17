@@ -45,9 +45,9 @@
 <script setup>
 import { computed, onMounted, reactive } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import NavBar from "../components/NavBar.vue";
-import { useUserStore } from "../Store/UserStore";
-import { useLocationStore } from "../Store/locationStore";
+import NavBar from "../../components/NavBar.vue";
+import { useUserStore } from "../../Store/UserStore";
+import { useLocationStore } from "../../Store/locationStore";
 import axios from "axios";
 import useVuelidate from "@vuelidate/core";
 import { required, minLength, maxLength } from "@vuelidate/validators";
@@ -89,7 +89,7 @@ const handleAddCategory = async () => {
         );
         setTimeout(() => {
           router.push({
-            name: "menu",
+            name: "viewCategories",
             params: { locationId: state.locationId },
           });
         }, 500);

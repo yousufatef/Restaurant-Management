@@ -75,5 +75,19 @@ export const useUserStore = defineStore("user", {
         console.error("Error fetching locations:", error);
       }
     },
+
+    async fetchListOfCategories(locationId) {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/categories?locationId=${locationId}`
+        );
+        if (response.status === 200) {
+          this.listOfCategories = response.data;
+          this.numOfCategories = response.data.length;
+        }
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    },
   },
 });

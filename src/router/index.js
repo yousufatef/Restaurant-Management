@@ -22,32 +22,32 @@ const routes = [
   {
     path: "/profile",
     name: "profile",
-    component: () => import("../views/Profile.vue"),
+    component: () => import("../views/Profile/Profile.vue"),
   },
   {
     path: "/update-profile",
     name: "updateProfile",
-    component: () => import("../views/UpdateProfile.vue"),
+    component: () => import("../views/Profile/UpdateProfile.vue"),
   },
   {
     path: "/add-new-location",
     name: "addNewLocation",
-    component: () => import("../views/AddNewLocation.vue"),
+    component: () => import("../views/Location/AddNewLocation.vue"),
   },
   {
     path: "/delete-location/:locationId",
     name: "deleteLocation",
-    component: () => import("../views/DeleteLocation.vue"),
+    component: () => import("../views/Location/DeleteLocation.vue"),
   },
   {
     path: "/update-location/:locationId",
     name: "updateLocation",
-    component: () => import("../views/UpdateLocation.vue"),
+    component: () => import("../views/Location/UpdateLocation.vue"),
   },
   {
     path: "/delete-all-locations",
     name: "deleteAllLocations",
-    component: () => import("../views/DeleteAllLocations.vue"),
+    component: () => import("../views/Location/DeleteAllLocations.vue"),
   },
   {
     path: "/menu/location/:locationId",
@@ -57,12 +57,12 @@ const routes = [
   {
     path: "/menu/categories/view/:locationId",
     name: "viewCategories",
-    component: () => import("../views/ViewCategories.vue"),
+    component: () => import("../views/Category/ViewCategories.vue"),
   },
   {
     path: "/menu/categories/add/:locationId",
     name: "addCategories",
-    component: () => import("../views/AddCategories.vue"),
+    component: () => import("../views/Category/AddCategories.vue"),
   },
   {
     path: "/:catchAll(.*)",

@@ -13,7 +13,7 @@
       "password": "123456"
     },
     {
-      "name": "saad",
+      "name": "saadc",
       "email": "s3d@gmail.com",
       "password": "123456",
       "id": "77e4"
@@ -90,6 +90,13 @@
       "name": "cb56",
       "userId": "3494",
       "locationId": "HelloFrom CC"
+    },
+    {
+      "id": "d5c7",
+      "name": "dd",
+      "phone": "vsvsdvsvsvsdvs",
+      "address": "vd",
+      "userId": "77e4"
     }
   ],
   "categories": [
@@ -170,6 +177,30 @@
       "name": "BrakFast O ",
       "userId": "cb56",
       "locationId": "24bb"
+    },
+    {
+      "id": "e6af",
+      "name": "Drinkes",
+      "userId": "cb56",
+      "locationId": "24bb"
+    },
+    {
+      "id": "f675",
+      "name": "cdscscs",
+      "userId": "cb56",
+      "locationId": "24bb"
+    },
+    {
+      "id": "2417",
+      "name": "Saad Biads",
+      "userId": "77e4",
+      "locationId": "8c67"
+    },
+    {
+      "id": "1d90",
+      "name": "csacsa",
+      "userId": "77e4",
+      "locationId": "d5c7"
     }
   ],
   "items": []

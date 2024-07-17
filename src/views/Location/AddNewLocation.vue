@@ -7,8 +7,8 @@
 
 <script setup>
 import { ref } from "vue";
-import LocationForm from "../components/LocationForm.vue";
-import NavBar from "../components/NavBar.vue";
+import LocationForm from "../../components/LocationForm.vue";
+import NavBar from "../../components/NavBar.vue";
 
 const handleSuccess = (message) => {
   console.log(`Success: ${message}`);
