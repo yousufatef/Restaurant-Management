@@ -10,6 +10,7 @@ export const useUserStore = defineStore("user", {
     numOfCategories: 0, // should be a number
     listOfCategories: [],
     listOfLocations: [],
+    categoryName: "",
   }),
 
   actions: {
@@ -84,6 +85,32 @@ export const useUserStore = defineStore("user", {
         if (response.status === 200) {
           this.listOfCategories = response.data;
           this.numOfCategories = response.data.length;
+        }
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    },
+    async canUserAccessCategory(userId, locationId, categoryId, router) {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/categories?userId=${userId}`
+        );
+
+        if (response.status === 200) {
+          const filteredByLocationId = response.data.filter(
+            (category) => category.locationId === locationId
+          );
+
+          const filteredCategories = filteredByLocationId.filter(
+            (category) => category.id === categoryId
+          );
+          this.categoryName = filteredCategories.name;
+          if (filteredCategories.length !== 1) {
+            console.log(
+              "Category not found or multiple categories found. Redirecting to home."
+            );
+            router.push({ name: "home" });
+          }
         }
       } catch (error) {
         console.error("Error fetching categories:", error);

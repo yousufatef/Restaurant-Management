@@ -69,16 +69,24 @@
               <td class="px-6 py-4 whitespace-nowrap font-bold">
                 {{ category.name }}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <button class="text-red-600 hover:text-red-900">DELETE</button>
-                |
-                <button class="text-blue-600 hover:text-blue-900">
-                  UPDATE
-                </button>
-                |
-                <button class="text-green-600 hover:text-green-900">
-                  VIEW
-                </button>
+              <td
+                class="px-6 py-4 whitespace-nowrap text-sm font-medium flex gap-2"
+              >
+                <router-link
+                  :to="{
+                    name: 'updateCategory',
+                    params: {
+                      locationId: category.locationId,
+                      categoryId: category.id,
+                    },
+                  }"
+                >
+                  <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded focus:outline-none transition duration-200"
+                  >
+                    Update
+                  </button>
+                </router-link>
               </td>
             </tr>
           </tbody>
@@ -126,6 +134,6 @@ onMounted(async () => {
     // Fetch the list of categories after ensuring access and location info are fetched
     await store.fetchListOfCategories(state.locationId);
   }
-  console.log(store.listOfCategories);
+
 });
 </script>

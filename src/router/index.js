@@ -65,6 +65,11 @@ const routes = [
     component: () => import("../views/Category/AddCategories.vue"),
   },
   {
+    path: "/menu/categories/update/:locationId/:categoryId",
+    name: "updateCategory",
+    component: () => import("../views/Category/UpdateCategory.vue"),
+  },
+  {
     path: "/:catchAll(.*)",
     name: "notfound",
     component: () => import("../views/NotFound.vue"),

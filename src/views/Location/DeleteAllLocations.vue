@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import NavBar from "../components/NavBar.vue";
+import NavBar from "../../components/NavBar.vue";
 import { reactive, onMounted, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import axios from "axios";
